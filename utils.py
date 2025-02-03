@@ -1,8 +1,6 @@
-# @SudoR2spr
 import time
 import math
 import os
-import requests
 from pyrogram.errors import FloodWait
 
 class Timer:
@@ -19,6 +17,7 @@ class Timer:
 
 from datetime import datetime,timedelta
 
+#lets do calculations
 def hrb(value, digits= 2, delim= "", postfix=""):
     """Return a human-readable file size.
     """
@@ -89,10 +88,9 @@ async def progress_bar(current, total, reply, start):
             bar_length = 11
             completed_length = int(current * bar_length / total)
             remaining_length = bar_length - completed_length
-            progress_bar = "◆" * completed_length + "◇" * remaining_length
+            progress_bar = "▓" * completed_length + "▒" * remaining_length
             
             try:
-                await reply.edit(f'`╭──⌈👨‍💻 INSTALLING 👨‍💻⌋──╮ \n├{processing_bar}\n├ 🚶‍♂️🚶Runner : {sp} \n├ 🧑‍💻programing : {perc} \n├ 🧞‍♂️working : {cur}\n├ 🧛Data :  {tot} \n├ 🧟Timer : {eta} \n╰────⌈ DOWNLOADER BOYS ⌋────╯`\n') 
-         #       await reply.edit(f'`╭──⌈👨‍💻 INSTALLING 👨‍💻⌋──╮ \n├{processing_bar}\n├🚶‍♂️🚶 Runner : {sp} \n├ 🧑‍💻programing : {perc} \n├ 🧞‍♂️working : {cur}\n├ 🧛Data :  {tot} \n├ 🧟Timer : {eta} \n╰─⌈ ▌│█║▌║▌║ 𝗦𝗧𝗥𝗔𝗡𝗚𝗘𝗥 𝗕𝗢𝗬 𝗥𝗢𝗛𝗜𝗧 ║▌║▌║█│▌ ⌋─╯`\n') 
+                await reply.edit(f'`\n ╭──⌯════𝐁𝐨𝐭 𝐒𝐭𝐚𝐭𝐢𝐜𝐬═════⌯──╮ \n├⚡ {progress_bar} |﹝{perc}﹞ \n├🚀 Speed ➤ {sp} \n├📟 Processed ➤ {cur}\n├🧲 Size - ETA ➤ {tot} - {eta} \n╰─═══ ✨🦋𝐊𝐔𝐍𝐀𝐋🦋✨ ═══─╯`\n') 
             except FloodWait as e:
                 time.sleep(e.x)
